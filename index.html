@@ -65,7 +65,6 @@
           </div>
         </div>
       </section>
-      <script>
         function navigateToLogin(){
             var delayInMilliseconds = 10000; //1 second
 
@@ -76,32 +75,32 @@
   //your code to be executed after 1 second
 //}, delayInMilliseconds);
           
-         
-          function getUser(){
+                        
+                let option={
+                    method:"post",
+                    headers:{
 
-            let options={
-               method:'GET',
-                headers:{
-                    'Content-Type': 'application/json;charset=utf-8'
-                }
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'grant_type':'authorization_code',
+                        'code':'{AQRlSgy6pqPEwcSGopxeBFBm4HpDFCPP3vSmxAy7HnX-god5JTKLiMQhiEZ--Ha4zj-R-ynhnQNuG6l2XPY8NhiCmPyIN2vgsKVuS3kG-FYKEMMzPm88FWmFN3tWOkKQmfsiwEhQVGO5sCDUpqldo5kahT5jy4ToF4TJYW56W4AD-m5p9x6HCnPleBHi4NxfQqW3bZx9kUq0S9FQz8M}',
+                        'redirect_uri':'{your_callback_url}',
+                        'client_id':'{86dvsak8trgwqf}',
+                        'client_secret':'{zEBnrTtKXh0TQ9fI}'
+                                            },
+                  
+                };
+
+                let addUserRequest = fetch('https://www.linkedin.com/oauth/v2/accessToken HTTP/1.1',{
+                    ...option
+                })
+
+                addUserRequest.then(res=>res.json()).then(res=>{
+                                
+                })
             }
-            let postRequest=fetch("https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86dvsak8trgwqf&redirect_uri=https://wizardly-benz-4f5298.netlify.app&state=DCEeFWf45A53sdfKef424&scope=r_liteprofile%20r_emailaddress%20",{
-                ...options
-            });
-            
-            postRequest.then(res=>res.json()).then(res=>{
-                console.log(res);
-            }).catch(err=>{
-                console.log(err);
-            })
-          
-         
-        }
-        getUser();
-        console.log(getUser);
-    }
-    console.log("hello");
-      </script>
+           
+        </script>
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
