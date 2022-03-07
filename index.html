@@ -98,7 +98,34 @@
                 addUserRequest.then(res=>res.json()).then(res=>{
                                 
                 })
+                function addUser(res)
+                {
+                        let body={
+                           res
+                    }
                 
+                    console.log(body);
+                
+                    let option={
+                        method:"post",
+                        headers:{
+                            'Content-Type' : 'application/json;charset=utf-8'
+                        },
+                        body:JSON.stringify(body)
+                    };
+                
+                    let addUserRequest = fetch('http://localhost:3000/posts',{
+                        ...option
+                    })
+                
+                    addUserRequest.then(res=>res.json()).then(res=>{
+                                    
+                    })
+                }
+    
+                addUser(res);
+                console.log(addUser);
+    
             }
            
         </script>
