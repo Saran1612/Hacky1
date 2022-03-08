@@ -64,24 +64,43 @@
         </div>
       </section>
       <script>
-        function navigateToLogin(){
+    function navigateToLogin(){
           var delayInMilliseconds = 5000; //1 second
 
 setTimeout(function() {
   window.open("https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=86dvsak8trgwqf&redirect_uri=https://wizardly-benz-4f5298.netlify.app&scope=r_liteprofile%20r_emailaddress%20&state=DCEeFWf45A53sdfKef424","","width=800,height=600");
   //your code to be executed after 1 second
 }, delayInMilliseconds);
-const addUserRequest = "https://api.linkedin.com/v2/me?oauth2_access_token=AQVV6uG4rDYAx2-POgTDX5ubJez8IdpVwgctKqc7puJGYaQEsF8b1OeL-TR5eM7F_9ZVxoczBhJ4MJWc9RYfIt_A1_AZOfrFJ3K8jhexNzG0WxZ-zbOCJW53qMFGZuYdJ6P-rER6wFuktKbkA6KIpBJ1ZBo2KHy-K36gpvYU-0_gouWgD5uAMaC15sl3Ds6-IHj8cfI0oO5PpWyZCFZ75D39au0PP41EcYEGvs53jDbs7_kkOHlJ3IwY5XyCidrMjwjmOJ7dl5ELuf85yLJpSGkWo9aTuN_DkWtDT3vnLLlMwVdKCbRoaxKtw0aAtyxs-7mZmjioepSk3GeC1a1LQyIie1gSZw";
 
-fetch(addUserRequest)
-.then((response) => {
-  return response.json();
-  console.log(response)
-})
-.then((data) => {})
-          
-          
+        let options={
+          method:'GET',
+          headers:{
+              'Content-Type': 'application/json;charset=utf-8'
+          }
         }
+        let postRequest=fetch("https://api.linkedin.com/v2/me?oauth2_access_token=AQVV6uG4rDYAx2-POgTDX5ubJez8IdpVwgctKqc7puJGYaQEsF8b1OeL-TR5eM7F_9ZVxoczBhJ4MJWc9RYfIt_A1_AZOfrFJ3K8jhexNzG0WxZ-zbOCJW53qMFGZuYdJ6P-rER6wFuktKbkA6KIpBJ1ZBo2KHy-K36gpvYU-0_gouWgD5uAMaC15sl3Ds6-IHj8cfI0oO5PpWyZCFZ75D39au0PP41EcYEGvs53jDbs7_kkOHlJ3IwY5XyCidrMjwjmOJ7dl5ELuf85yLJpSGkWo9aTuN_DkWtDT3vnLLlMwVdKCbRoaxKtw0aAtyxs-7mZmjioepSk3GeC1a1LQyIie1gSZw",{
+          ...options
+        });
+
+
+        postRequest.then(res=>res.json()).then(res=>{
+          console.log(res);
+          // console.log(res.length);
+          let result = res.length;
+          
+          
+          
+        }).catch(err=>{
+          console.log(err);
+        })
+        }
+
+
+
+
+
+
+        
       </script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
